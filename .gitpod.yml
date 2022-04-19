@@ -2,15 +2,18 @@ tasks:
   - init: |
       docker-compose pull
   - command: |
-      export GP_URL=`gp url 8080 | sed 's~https://~~'`
+      export GP_URL=`gp url 80 | sed 's~https://~~'`
       docker-compose up
 
 ports:
-  - port: 8080
+  - port: 80
     onOpen: open-browser
+    visibility: public
   - port: 9200
     onOpen: ignore
   - port: 9300
+    onOpen: ignore
+  - port: 3306
     onOpen: ignore
 
 vscode:
