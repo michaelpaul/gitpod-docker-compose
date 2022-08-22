@@ -1,6 +1,4 @@
 tasks:
-  - init: |
-      docker-compose pull
   - command: |
       export GP_URL=`gp url 8080 | sed 's~https://~~'`
       docker-compose up
